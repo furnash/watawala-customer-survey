@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Fill In Survey</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-item>
+        <ion-label position="stacked" class="custom-ion-label">නම</ion-label>
+        <ion-input [(ngModel)]="survey.name"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position="stacked" class="custom-ion-label">ලිපිනය</ion-label>
+        <ion-input [(ngModel)]="survey.address"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position="stacked" class="custom-ion-label">දූරකථන අංකය</ion-label>
+        <ion-input [(ngModel)]="survey.phone" type="tel"></ion-input>
+    </ion-item>
+    <ion-list>
+        <ion-radio-group [(ngModel)]="survey.typeOfTeaUsed">
+            <ion-list-header>
+                <ion-label>ඔබ භාවිතා කරන තේ කොළ වර්ගය කුමක් ද?</ion-label>
+            </ion-list-header>
+
+            <ion-item>
+              <ion-label>වටවල</ion-label>
+              <ion-radio slot="start" value="watawala" checked></ion-radio>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>වෙනත්</ion-label>
+              <ion-radio slot="start" value="other" checked></ion-radio>
+            </ion-item>
+
+        </ion-radio-group>
+    </ion-list>
+    <ion-button color="primary" expand="block">Next</ion-button>
+    <ion-item>
+      <ion-label class="custom-ion-label"   position="stacked">ඔව් නම් හේතුව</ion-label>
+      <ion-textarea [(ngModel)]="survey.reasonForUsingWatawala"></ion-textarea>
+    </ion-item>
+    <ion-list>
+        <ion-radio-group [(ngModel)]="survey.reasonForUsingOtherBrands">
+            <ion-list-header>
+                <ion-label>වෙනත් දෙයක් භාවිතා කිරීමට හේතුව?</ion-label>
+            </ion-list-header>
+
+            <ion-item>
+              <ion-label>වටවල මිල අධිකයි</ion-label>
+              <ion-radio slot="start" value="milaadikai"></ion-radio>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>රසය අඩුයි</ion-label>
+              <ion-radio slot="start" value="nottasty"></ion-radio>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>වටවල කඩවල විකිණීමට නොමැත</ion-label>
+              <ion-radio slot="start" value="wikinimatanomatha"></ion-radio>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>වෙනත්</ion-label>
+              <ion-radio slot="start" value="other"></ion-radio>
+            </ion-item>
+
+        </ion-radio-group>
+    </ion-list>
+    <ion-item>
+        <ion-label class="custom-ion-label" position="stacked">හේතුව</ion-label>
+        <ion-textarea [(ngModel)]="survey.reasonForUsingOtherBrandsOther"></ion-textarea>
+    </ion-item>
+    <ion-button color="primary" expand="block" (click)="saveSurvey()">Submit</ion-button>
+</ion-content>
